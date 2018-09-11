@@ -7,7 +7,7 @@
                         'Elixir.Pluggy.Router','Elixir.Pluggy.Supervisor',
                         'Elixir.Pluggy.Template','Elixir.Pluggy.User',
                         'Elixir.Pluggy.UserController',
-                        'Elixir.Pluggy.WTFController']},
+                        'Elixir.Pluggy.WTFController','Elixir.Pluggy.Wtf']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Pluggy',[]}}]}.

@@ -14,23 +14,23 @@ defmodule Pluggy.UserController do
 
 		case result.num_rows do
 		  0 -> #no user with that username
-		    redirect(conn, "/fruits")
+		    redirect(conn, "/wtf")
 		  _ -> #user with that username exists
 		    [[id, password_hash]] = result.rows
 
 		    #make sure password is correct
 		    if Bcrypt.verify_pass(password, password_hash) do
 		      Plug.Conn.put_session(conn, :user_id, id)
-		      |>redirect("/fruits")
+		      |>redirect("/wtf")
 		    else
-		      redirect(conn, "/fruits")
+		      redirect(conn, "/wtf")
 		    end
 		end
 	end
 
 	def logout(conn) do
 		Plug.Conn.configure_session(conn, drop: true)
-		|> redirect("/fruits")
+		|> redirect("/")
 	end
 
 	# def create(conn, params) do

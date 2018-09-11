@@ -30,7 +30,7 @@ defmodule Pluggy.Router do
 
 
 
-  get "/fruits",           do: FruitController.index(conn)
+  get "/wtf",              do: WTFController.home(conn)
   get "/fruits/new",       do: FruitController.new(conn)
   get "/fruits/:id",       do: FruitController.show(conn, id)
   get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
