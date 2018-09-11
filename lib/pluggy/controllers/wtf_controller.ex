@@ -1,5 +1,5 @@
 defmodule Pluggy.WTFController do
-  
+
   require IEx
 
   alias Pluggy.Wtf
@@ -25,28 +25,7 @@ defmodule Pluggy.WTFController do
       _   -> User.get(session_user)
     end
 
-    send_resp(conn, 200, render("whatsTheirFace/home", fruits: Fruit.all(), user: current_user))
-  end
-
-  def new(conn),          do: send_resp(conn, 200, render("fruits/new", []))
-  def show(conn, id),     do: send_resp(conn, 200, render("fruits/show", fruit: Fruit.get(id)))
-  def edit(conn, id),     do: send_resp(conn, 200, render("fruits/edit", fruit: Fruit.get(id)))
-  
-  def create(conn, params) do
-    Fruit.create(params)
-    #move uploaded file from tmp-folder (might want to first check that a file was uploaded)
-    File.rename(params["file"].path, "priv/static/uploads/#{params["file"].filename}")
-    redirect(conn, "/wtf")
-  end
-
-  def update(conn, id, params) do
-    Fruit.update(id, params)
-    redirect(conn, "/wtf")
-  end
-
-  def destroy(conn, id) do
-    Fruit.delete(id)
-    redirect(conn, "/wtf")
+    send_resp(conn, 200, render("whatsTheirFace/home", wtf: Students.all(), user: current_user))
   end
 
   defp redirect(conn, url) do
