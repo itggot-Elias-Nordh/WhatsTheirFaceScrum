@@ -35,6 +35,6 @@ defmodule Pluggy.Students do
 	end
 
 	def to_struct_list(rows) do
-		for [id, name, img_path, class_id] <- rows, do: %Fruit.Students{id: id, name: name, img_path: img_path, class_id: class_id}
+		for [id, name, img_path, class_id] <- rows, do: %Pluggy.Students{id: id, name: name, img_path: img_path, class_id: class_id}
 	end
 end
