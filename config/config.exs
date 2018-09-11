@@ -7,9 +7,9 @@ config :pluggy,
     pool: DBConnection.Poolboy,
     pool_size: 20, 
     host: "localhost", # or address
-    database: "testdb",
-    username: "testuser",
-    password: "test"
+    database: "wtfScrum",
+    username: "bandej",
+    password: "itggot"
   ]
 
 # This configuration is loaded before any dependency and is restricted
