@@ -1,6 +1,6 @@
 
 ### Elixir template
-/_build
+#/_build
 /deps
 /cover
 /doc
