@@ -2,6 +2,7 @@ defmodule Pluggy.Router do
   use Plug.Router
 
   alias Pluggy.FruitController
+  alias Pluggy.WTFController
   alias Pluggy.UserController
 
   plug Plug.Static, at: "/", from: :pluggy
@@ -21,6 +22,13 @@ defmodule Pluggy.Router do
   plug(Plug.Parsers, parsers: [:urlencoded, :multipart])
   plug(:match)
   plug(:dispatch)
+
+
+
+  get "/",                 do: WTFController.index(conn)
+  get "/login",            do: WTFController.login(conn)
+
+
 
   get "/fruits",           do: FruitController.index(conn)
   get "/fruits/new",       do: FruitController.new(conn)

@@ -6,7 +6,8 @@
                         'Elixir.Pluggy.FruitController',
                         'Elixir.Pluggy.Router','Elixir.Pluggy.Supervisor',
                         'Elixir.Pluggy.Template','Elixir.Pluggy.User',
-                        'Elixir.Pluggy.UserController']},
+                        'Elixir.Pluggy.UserController',
+                        'Elixir.Pluggy.WTFController']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Pluggy',[]}}]}.

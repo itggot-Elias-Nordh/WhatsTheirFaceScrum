@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="/pluggy.css">
 </head>
 <body>
-	<%= template %>
+	<container>
+		<%= template %>
+	</container>
 </body>
 </html>
