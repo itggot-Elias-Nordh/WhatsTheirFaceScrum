@@ -2,11 +2,10 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :pluggy,
-  db: [
+config :pluggy, db: [
     pool: DBConnection.Poolboy,
     pool_size: 20, 
-    host: "localhost", # or address
+    hostname: "landmark.se", # or address
     database: "testdb",
     username: "testuser",
     password: "test"
