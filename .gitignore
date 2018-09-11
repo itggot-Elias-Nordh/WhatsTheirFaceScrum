@@ -1,15 +1,14 @@
 
 ### Elixir template
-/_build
+#/_build
 /cover
-/deps
 /doc
 /.fetch
 erl_crash.dump
 *.ez
 *.beam
 /config/*.secret.exs
-/config/config.exs
+#/config/config.exs
 /.idea
 /mix.lock
 /pluggy.iml
