@@ -1,6 +1,7 @@
 
 ### Elixir template
 /_build
+/deps
 /cover
 /doc
 /.fetch
@@ -12,3 +13,4 @@ config/config.exs
 /.idea
 /mix.lock
 /pluggy.iml
+config/
