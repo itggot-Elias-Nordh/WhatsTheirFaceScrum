@@ -1,29 +1,28 @@
 defmodule Pluggy.UserController do
 
-	#import Pluggy.Template, only: [render: 2]
+	import Pluggy.Template, only: [render: 2]
 	import Plug.Conn, only: [send_resp: 3]
+
+  def login(conn) do
+    send_resp(conn, 200, render("whatsTheirFace/login", []))
+  end
 
 	def login(conn, params) do
 		username = params["username"]
 		password = params["pwd"]
 
-		result =
-		  Postgrex.query!(DB, "SELECT id, password_hash FROM users WHERE username = $1", [username],
-		    pool: DBConnection.Poolboy
-		  )
+		result = Pluggy.User.get_by_username(username)
 
-		case result.num_rows do
-		  0 -> #no user with that username
-		    redirect(conn, "/wtf")
+		case result.id do
+		  nil -> #no user with that username
+		    redirect(conn, "/")
 		  _ -> #user with that username exists
-		    [[id, password_hash]] = result.rows
-
 		    #make sure password is correct
-		    if Bcrypt.verify_pass(password, password_hash) do
-		      Plug.Conn.put_session(conn, :user_id, id)
-		      |>redirect("/wtf")
+		    if Bcrypt.verify_pass(password, result.password) do
+		      Plug.Conn.put_session(conn, :user_id, result.id)
+		      |>redirect("/")
 		    else
-		      redirect(conn, "/wtf")
+		      redirect(conn, "/home")
 		    end
 		end
 	end
@@ -32,6 +31,16 @@ defmodule Pluggy.UserController do
 		Plug.Conn.configure_session(conn, drop: true)
 		|> redirect("/")
 	end
+
+  def home(conn) do
+    session_user = conn.private.plug_session["user_id"]
+    current_user = case session_user do
+      nil -> nil
+      _   -> Pluggy.User.get_by_id(session_user)
+    end
+
+    send_resp(conn, 200, render("whatsTheirFace/home", user: current_user))
+  end
 
 	# def create(conn, params) do
 	# 	#pseudocode

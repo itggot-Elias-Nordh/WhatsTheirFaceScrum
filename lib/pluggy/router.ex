@@ -26,11 +26,10 @@ defmodule Pluggy.Router do
 
 
   get "/",                 do: WTFController.index(conn)
-  get "/login",            do: WTFController.login(conn)
+  get "/login",            do: UserController.login(conn)
 
 
-
-  get "/wtf",              do: WTFController.home(conn)
+  get "/home",             do: UserController.home(conn)
   get "/fruits/new",       do: FruitController.new(conn)
   get "/fruits/:id",       do: FruitController.show(conn, id)
   get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
