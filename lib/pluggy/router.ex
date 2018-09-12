@@ -28,9 +28,6 @@ defmodule Pluggy.Router do
 
 
   get "/",                      do: WTFController.index(conn)
-  get "/login",                 do: UserController.login(conn)
-  post "/login",                do: UserController.login(conn, conn.body_params)
-  post "/logout",               do: UserController.logout(conn)
 
   get "/home",                  do: UserController.home(conn)
   get "/classes",               do: ClassController.index(conn)
@@ -41,6 +38,13 @@ defmodule Pluggy.Router do
   post "/classes/:id/edit",     do: ClassController.update(conn, id, conn.body_params)
   post "/classes/:id/destroy",  do: ClassController.destroy(conn, id)
 
+  get "/",                 do: WTFController.index(conn)
+  get "/login",            do: WTFController.login(conn)
+  get "/difficulty",       do: WTFController.difficulty(conn)
+  get "/quiz1",            do: WTFController.quiz1(conn)
+
+  post "/quiz_start",      do: WTFController.quiz_start(conn, conn.body_params)
+
   get "/students/new",           do: StudentController.new (conn)
   get "/students/:id",           do: StudentController.show(conn, id)
   get "/students/:id/edit",      do: StudentController.edit(conn, id)
@@ -48,6 +52,10 @@ defmodule Pluggy.Router do
   post "/students/:id/edit",     do: StudentController.update(conn, id, conn.body_params)
   post "/students/:id/destroy",  do: StudentController.destroy(conn, id)
 
+  get "/wtf",              do: WTFController.home(conn)
+
+  post "/users/login",     do: UserController.login(conn, conn.body_params)
+  post "/users/logout",    do: UserController.logout(conn)
 
   match _ do
     send_resp(conn, 404, "oops")

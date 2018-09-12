@@ -2,7 +2,7 @@ defmodule Pluggy.WTFController do
 
   require IEx
 
-  alias Pluggy.Wtf
+  alias Pluggy.Students
   alias Pluggy.User
   import Pluggy.Template, only: [render: 2]
   import Plug.Conn, only: [send_resp: 3]
@@ -15,6 +15,30 @@ defmodule Pluggy.WTFController do
   def login(conn) do
     send_resp(conn, 200, render("whatsTheirFace/login", []))
   end
+
+  def difficulty(conn) do
+    send_resp(conn, 200, render("whatsTheirFace/difficulty", []))
+  end
+
+  def quiz1(conn) do
+    conn = Plug.Conn.put_session(conn, :times, conn.private.plug_session["times"] + 1)
+    if conn.private.plug_session["start"] == nil or conn.private.plug_session["start"] == false do
+        redirect(conn, "/wtf")
+    end
+    className = conn.private.plug_session["className"]
+    difficulty = conn.private.plug_session["difficulty"]
+    send_resp(conn, 200, render("whatsTheirFace/quiz1", className: className))
+  end
+
+  def quiz_start(conn, params) do
+    conn = Plug.Conn.put_session(conn, :start, true)
+    conn = Plug.Conn.put_session(conn, :times, 0)
+    conn = Plug.Conn.put_session(conn, :cheat, 0)
+    conn = Plug.Conn.put_session(conn, :className, params["className"])
+    conn = Plug.Conn.put_session(conn, :difficulty, params["difficulty"])
+    conn = Plug.Conn.put_session(conn, :score, true)
+    redirect(conn, "/quiz1")
+  end  
 
   def home(conn) do
 

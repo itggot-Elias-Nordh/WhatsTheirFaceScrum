@@ -1,0 +1,15 @@
+<form action="/quiz_start" method="post">
+    <select name="className">
+        <% groups = ["3C", "2B", "3D", "2A", "1C"] %>
+        <%= for group <- groups do %>
+            <option value=<%= group %>><%= group %></option>   
+        <% end %>         
+    </select>
+    <select name="difficulty">
+        <option value="0">Easy</option>
+        <option value="1">Medium</option>
+        <option value="2">Hard</option>
+    </select>
+    <input type="submit" value="start">
+</form>
+

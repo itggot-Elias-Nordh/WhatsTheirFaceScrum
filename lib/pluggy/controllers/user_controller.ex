@@ -22,7 +22,7 @@ defmodule Pluggy.UserController do
 		      Plug.Conn.put_session(conn, :user_id, result.id)
 		      |>redirect("/")
 		    else
-		      redirect(conn, "/home")
+		      redirect(conn, "/wrong")
 		    end
 		end
 	end
