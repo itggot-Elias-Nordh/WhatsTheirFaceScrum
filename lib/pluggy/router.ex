@@ -27,7 +27,10 @@ defmodule Pluggy.Router do
 
   get "/",                 do: WTFController.index(conn)
   get "/login",            do: WTFController.login(conn)
+  get "/difficulty",       do: WTFController.difficulty(conn)
+  get "/quiz1",            do: WTFController.quiz1(conn)
 
+  post "/quiz_start",      do: WTFController.quiz_start(conn, conn.body_params)
 
 
   get "/wtf",              do: WTFController.home(conn)
@@ -42,7 +45,6 @@ defmodule Pluggy.Router do
 
   # should be delete /fruits/:id, but put/patch/delete are not supported without hidden inputs
   post "/fruits/:id/destroy", do: FruitController.destroy(conn, id)
-
 
   post "/users/login",     do: UserController.login(conn, conn.body_params)
   post "/users/logout",    do: UserController.logout(conn)

@@ -18,12 +18,12 @@ defmodule Pluggy.UserController do
 		  _ -> #user with that username exists
 		    [[id, password_hash]] = result.rows
 
-		    #make sure password is correct
+				#make sure password is correct
 		    if Bcrypt.verify_pass(password, password_hash) do
 		      Plug.Conn.put_session(conn, :user_id, id)
-		      |>redirect("/wtf")
-		    else
-		      redirect(conn, "/wtf")
+		      |>redirect("/")
+				else
+		      redirect(conn, "/wrong")
 		    end
 		end
 	end
