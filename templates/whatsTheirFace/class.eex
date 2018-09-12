@@ -1,0 +1,9 @@
+<h1> Klass <%=class.name%> </h1>
+<ul>
+    <%= for student <- students do %>
+        <li class="class">
+            <img src="<%=student.img_path%>">
+            <a href="/classes/student/<%= student.id %>"><%=student.name%></a>
+        </li>
+    <% end %>
+</ul>
