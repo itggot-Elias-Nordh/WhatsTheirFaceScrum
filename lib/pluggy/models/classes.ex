@@ -27,7 +27,7 @@ defmodule Pluggy.Classes do
     Postgrex.query!(DB, "DELETE FROM classes WHERE id = $1", [String.to_integer(id)], [pool: DBConnection.Poolboy])
   end
 
-  def to_struct([[id, name, tastiness]]) do
+  def to_struct([[id, name]]) do
     %Pluggy.Classes{id: id, name: name}
   end
 

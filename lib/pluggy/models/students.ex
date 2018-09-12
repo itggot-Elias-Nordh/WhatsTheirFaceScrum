@@ -7,6 +7,11 @@ defmodule Pluggy.Students do
 		|> to_struct_list
 	end
 
+	def get_by_class_id(class_id) do
+    Postgrex.query!(DB, "SELECT * FROM students WHERE class_id = $1", [String.to_integer(class_id)], [pool: DBConnection.Poolboy]).rows
+    |> to_struct_list
+	end
+
 	def get_by_id(id) do
 		Postgrex.query!(DB, "SELECT * FROM students WHERE id = $1 LIMIT 1", [String.to_integer(id)], [pool: DBConnection.Poolboy]).rows
 		|> to_struct

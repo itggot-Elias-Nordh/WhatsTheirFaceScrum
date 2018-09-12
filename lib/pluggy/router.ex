@@ -4,6 +4,8 @@ defmodule Pluggy.Router do
   alias Pluggy.FruitController
   alias Pluggy.WTFController
   alias Pluggy.UserController
+  alias Pluggy.ClassController
+  alias Pluggy.StudentController
 
   plug Plug.Static, at: "/", from: :pluggy
   plug(:put_secret_key_base)
@@ -25,6 +27,17 @@ defmodule Pluggy.Router do
 
 
 
+  get "/",                      do: WTFController.index(conn)
+
+  get "/home",                  do: UserController.home(conn)
+  get "/classes",               do: ClassController.index(conn)
+  get "/classes/new",           do: ClassController.new (conn)
+  get "/classes/:id",           do: ClassController.show(conn, id)
+  get "/classes/:id/edit",      do: ClassController.edit(conn, id)
+  post "/classes/new",          do: ClassController.create(conn, conn.body_params)
+  post "/classes/:id/edit",     do: ClassController.update(conn, id, conn.body_params)
+  post "/classes/:id/destroy",  do: ClassController.destroy(conn, id)
+
   get "/",                 do: WTFController.index(conn)
   get "/login",            do: WTFController.login(conn)
   get "/difficulty",       do: WTFController.difficulty(conn)
@@ -32,19 +45,14 @@ defmodule Pluggy.Router do
 
   post "/quiz_start",      do: WTFController.quiz_start(conn, conn.body_params)
 
+  get "/students/new",           do: StudentController.new (conn)
+  get "/students/:id",           do: StudentController.show(conn, id)
+  get "/students/:id/edit",      do: StudentController.edit(conn, id)
+  post "/students/new",          do: StudentController.create(conn, conn.body_params)
+  post "/students/:id/edit",     do: StudentController.update(conn, id, conn.body_params)
+  post "/students/:id/destroy",  do: StudentController.destroy(conn, id)
 
   get "/wtf",              do: WTFController.home(conn)
-  get "/fruits/new",       do: FruitController.new(conn)
-  get "/fruits/:id",       do: FruitController.show(conn, id)
-  get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
-  
-  post "/fruits",          do: FruitController.create(conn, conn.body_params)
- 
-  # should be put /fruits/:id, but put/patch/delete are not supported without hidden inputs
-  post "/fruits/:id/edit", do: FruitController.update(conn, id, conn.body_params)
-
-  # should be delete /fruits/:id, but put/patch/delete are not supported without hidden inputs
-  post "/fruits/:id/destroy", do: FruitController.destroy(conn, id)
 
   post "/users/login",     do: UserController.login(conn, conn.body_params)
   post "/users/logout",    do: UserController.logout(conn)

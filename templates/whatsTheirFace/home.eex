@@ -1,0 +1,18 @@
+<h1>
+    WTFsdd
+</h1>
+
+<div class="buttons">
+    <div id="button_1" class="button">
+
+    </div>
+    <div id="button_2" class="button">
+
+    </div>
+    <div id="button_3" class="button">
+
+    </div>
+    <div id="button_4" class="button">
+        <a href="/classes"> Klasser </a>
+    </div>
+</div>

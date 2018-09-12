@@ -1,0 +1,27 @@
+<h1> Redigera Klass <%=class.name%> </h1>
+
+<form action="/classes/<%=class.id%>/edit" method="post">
+    <label for="class-name">Namn på klass:</label>
+    <input id="class-name" type="text" name="name" value="<%=class.name%>">
+    <input type="submit" value="Spara">
+</form>
+
+<h2>Elever</h2>
+<h4>Ny elev:</h4>
+<form action="/students/new" method="post">
+    <input type="hidden" name="class-id" value="<%=class.id%>">
+    <input type="text" name="student-name" placeholder="Namn på student">
+    <input type="text" name="student-img" placeholder="Path to img">
+    <input type="submit" value="Spara">
+</form>
+
+<ul>
+    <%= for student <- students do %>
+        <li class="class">
+            <img src="<%=student.img_path%>">
+            <a href="/classes/students/<%= student.id %>"><%=student.name%></a>
+            <a href="/classes/students/<%= student.id %>/edit"><button>Edit</button></a>
+            <a href="/classes/students/<%= student.id %>/destroy"><button>Delete</button></a>
+        </li>
+    <% end %>
+</ul>
