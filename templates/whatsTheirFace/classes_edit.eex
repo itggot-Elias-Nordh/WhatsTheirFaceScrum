@@ -9,9 +9,9 @@
 <h2>Elever</h2>
 <h4>Ny elev:</h4>
 <form action="/students/new" method="post">
-    <input type="hidden" name="class-id" value="<%=class.id%>">
-    <input type="text" name="student-name" placeholder="Namn på student">
-    <input type="text" name="student-img" placeholder="Path to img">
+    <input type="hidden" name="class_id" value="<%=class.id%>">
+    <input type="text" name="name" placeholder="Namn på student">
+    <input type="text" name="img_path" placeholder="Path to img">
     <input type="submit" value="Spara">
 </form>
 

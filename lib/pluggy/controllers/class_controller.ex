@@ -32,7 +32,7 @@ defmodule Pluggy.ClassController do
   end
 
   def destroy(conn, id) do
-    Classes.delete(id)
+    Classes.delete_by_id(id)
     redirect(conn, "/classes")
   end
 
