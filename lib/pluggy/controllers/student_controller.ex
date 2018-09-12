@@ -17,17 +17,17 @@ defmodule Pluggy.StudentController do
   def edit(conn, id),     do: send_resp(conn, 200, render("whatsTheirFace/students_edit", fruit: Fruit.get(id)))
 
   def create(conn, params) do
-    Classes.create(params)
+    Student.create(params)
     redirect(conn, "/classes")
   end
 
   def update(conn, id, params) do
-    Classes.update(id, params)
+    Student.update(id, params)
     redirect(conn, "/classes")
   end
 
   def destroy(conn, id) do
-    Classes.delete(id)
+    Student.delete(id)
     redirect(conn, "/classes")
   end
 
