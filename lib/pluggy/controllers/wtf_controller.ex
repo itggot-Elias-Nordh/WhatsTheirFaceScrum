@@ -16,6 +16,16 @@ defmodule Pluggy.WTFController do
     send_resp(conn, 200, render("whatsTheirFace/login", []))
   end
 
+  def home(conn) do
+    session_user = conn.private.plug_session["user_id"]
+    current_user = case session_user do
+      nil -> nil
+      _   -> Pluggy.User.get_by_id(session_user)
+    end
+
+    send_resp(conn, 200, render("whatsTheirFace/home", user: current_user))
+  end
+
   def difficulty(conn) do
     send_resp(conn, 200, render("whatsTheirFace/difficulty", []))
   end
@@ -46,10 +56,10 @@ defmodule Pluggy.WTFController do
     session_user = conn.private.plug_session["user_id"]
     current_user = case session_user do
       nil -> nil
-      _   -> User.get(session_user)
+      _   -> User.get_by_id(session_user)
     end
 
-    send_resp(conn, 200, render("whatsTheirFace/home", wtf: Students.all(), user: current_user))
+    send_resp(conn, 200, render("whatsTheirFace/home", []))
   end
 
   defp redirect(conn, url) do
