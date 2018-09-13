@@ -20,7 +20,6 @@
         <li class="class">
             <img src="<%=student.img_path%>">
             <a href="/classes/students/<%= student.id %>"><%=student.name%></a>
-            <a href="/classes/students/<%= student.id %>/edit"><button>Edit</button></a>
             <a href="/classes/students/<%= student.id %>/destroy"><button>Delete</button></a>
         </li>
     <% end %>

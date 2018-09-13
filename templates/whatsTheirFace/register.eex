@@ -1,0 +1,7 @@
+<form action="/register" method="post">
+    <input type="text" name="name" placeholder="Fulla namn:">
+    <input type="text" name="username" placeholder="Användarnamn:">
+    <input type="password" name="password" placeholder="Lösenord:">
+    <input type="password" name="password_2" placeholder="Lösenord igen:">
+    <input type="submit" value="Registrera dig">
+</form>
