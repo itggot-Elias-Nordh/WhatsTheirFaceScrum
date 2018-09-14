@@ -1,8 +1,8 @@
 <form action="/quiz_start" method="post">
     <select name="className">
-        <% groups = ["3C", "2B", "3D", "2A", "1C"] %>
+        <% groups = classes %>
         <%= for group <- groups do %>
-            <option value=<%= group %>><%= group %></option>   
+            <option value=<%= group.name %>><%= group.name %></option>   
         <% end %>         
     </select>
     <select name="difficulty">
