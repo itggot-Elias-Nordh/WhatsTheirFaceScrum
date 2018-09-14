@@ -12,6 +12,11 @@ defmodule Pluggy.Classes do
     |> to_struct
   end
 
+  def get_id_by_name(name) do
+    Postgrex.query!(DB, "SELECT * FROM classes WHERE name = $1 LIMIT 1", [name], [pool: DBConnection.Poolboy]).rows
+    |> to_struct
+  end
+
   def update(id, params) do
     name = params["name"]
     id = String.to_integer(id)

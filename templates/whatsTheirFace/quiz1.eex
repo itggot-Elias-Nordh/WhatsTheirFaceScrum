@@ -1,2 +1,9 @@
-<h1><%= IO.inspect className %></h1>
+<h1> Klass <%=className%> </h1>
+
+<%= for student <- students do %>
+    <li class="class">
+        <img src="<%=student.img_path%>">
+        <a href="/classes/student/<%= student.id %>"><%=student.name%></a>
+    </li>
+<% end %>
 

@@ -10,7 +10,7 @@
 
     </div>
     <div id="button_3" class="button">
-
+        <a href="/difficulty"> Quiz </a>
     </div>
     <div id="button_4" class="button">
         <a href="/classes"> Klasser </a>

@@ -49,8 +49,6 @@ defmodule Pluggy.Router do
   post "/students/:id/edit",    do: StudentController.update(conn, id, conn.body_params)
   post "/students/:id/destroy", do: StudentController.destroy(conn, id)
 
-  get "/wtf",                   do: WTFController.home(conn)
-
   post "/users/login",          do: UserController.login(conn, conn.body_params)
   post "/users/logout",         do: UserController.logout(conn)
 

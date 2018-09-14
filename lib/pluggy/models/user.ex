@@ -6,7 +6,7 @@ defmodule Pluggy.User do
 
 
 	def get_by_id(id) do
-		Postgrex.query!(DB, "SELECT * FROM users WHERE username = $1 LIMIT 1", [id], pool: DBConnection.Poolboy).rows |> to_struct
+		Postgrex.query!(DB, "SELECT * FROM users WHERE id = $1 LIMIT 1", [id], pool: DBConnection.Poolboy).rows |> to_struct
 	end
 
   def get_by_username(username) do
