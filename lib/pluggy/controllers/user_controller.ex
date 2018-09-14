@@ -11,7 +11,7 @@ defmodule Pluggy.UserController do
 
 		case result.id do
 		  nil -> #no user with that username
-		    redirect(conn, "/")
+		    redirect(conn, "/home")
 		  _ -> #user with that username exists
 		    #make sure password is correct
 		    if Bcrypt.verify_pass(password, result.password) do
@@ -27,6 +27,29 @@ defmodule Pluggy.UserController do
 		Plug.Conn.configure_session(conn, drop: true)
 		|> redirect("/")
 	end
+
+  def home(conn) do
+    session_user = conn.private.plug_session["user_id"]
+    current_user = case session_user do
+      nil -> nil
+      _   -> Pluggy.User.get_by_id(session_user)
+    end
+
+    send_resp(conn, 200, render("whatsTheirFace/home", user: current_user))
+  end
+
+  def register(conn) do
+    session_user = conn.private.plug_session["user_id"]
+    reg = case session_user do
+      nil -> send_resp(conn, 200, render("whatsTheirFace/register", []))
+      _   -> redirect(conn, "/home")
+    end
+  end
+
+  def register(conn, params) do
+    Pluggy.User.create(params)
+    redirect(conn ,"/login")
+  end
 
 	# def create(conn, params) do
 	# 	#pseudocode

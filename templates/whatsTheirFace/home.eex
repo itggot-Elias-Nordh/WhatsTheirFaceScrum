@@ -1,18 +1,10 @@
-<h1>
-    WTFsdd
-</h1>
+<div class="main">
+    <h1>WTF</h1>
+    <p> (Patent pending..) </p>
 
-<div class="buttons">
-    <div id="button_1" class="button">
-
-    </div>
-    <div id="button_2" class="button">
-
-    </div>
-    <div id="button_3" class="button">
-        <a href="/difficulty"> Quiz </a>
-    </div>
-    <div id="button_4" class="button">
-        <a href="/classes"> Klasser </a>
+    <div class="buttons">
+        <a href="/classes" id="class_button" class="button home_button"> Klasser </a>
+        <a href="/logout" id="logout_button" class="button home_button"> Logga ut </a>
+        <a href="/difficulty" id="quiz_button" class="button home_button"> Quiz </a>
     </div>
 </div>
