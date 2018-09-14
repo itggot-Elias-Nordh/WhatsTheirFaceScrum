@@ -1,4 +1,11 @@
-<form action="/classes/new" method="post">
-    <input type="text" name="name" placeholder="Namn på ny klass..">
-    <input type="submit" value="Skapa">
-</form>
+<div class="main class_edit">
+    <h1>WTF</h1>
+    <p> (Patent pending..) </p>
+
+    <h1> Ny Klass</h1>
+
+    <form action="/classes/new" method="post">
+        <input type="text" name="name" placeholder="Namn på ny klass..">
+        <input class="button" type="submit" value="Skapa">
+    </form>
+</div>

@@ -1,26 +1,37 @@
-<h1> Redigera Klass <%=class.name%> </h1>
+<div class="main class_edit">
+    <h1>WTF</h1>
+    <p> (Patent pending..) </p>
 
-<form action="/classes/<%=class.id%>/edit" method="post">
-    <label for="class-name">Namn på klass:</label>
-    <input id="class-name" type="text" name="name" value="<%=class.name%>">
-    <input type="submit" value="Spara">
-</form>
+    <h1> Redigera Klass <%=class.name%> </h1>
 
-<h2>Elever</h2>
-<h4>Ny elev:</h4>
-<form action="/students/new" method="post">
-    <input type="hidden" name="class_id" value="<%=class.id%>">
-    <input type="text" name="name" placeholder="Namn på student">
-    <input type="text" name="img_path" placeholder="Path to img">
-    <input type="submit" value="Spara">
-</form>
+    <form action="/classes/<%=class.id%>/edit" method="post">
+        <label for="class-name">Namn på klass:</label>
+        <input id="class-name" type="text" name="name" value="<%=class.name%>">
+        <input class="button" type="submit" value="Spara">
+    </form>
 
-<ul>
-    <%= for student <- students do %>
-        <li class="class">
-            <img src="<%=student.img_path%>">
-            <a href="/classes/students/<%= student.id %>"><%=student.name%></a>
-            <a href="/classes/students/<%= student.id %>/destroy"><button>Delete</button></a>
-        </li>
-    <% end %>
-</ul>
+    <h2>Elever</h2>
+    <h4>Ny elev:</h4>
+    <form action="/students/new" method="post">
+        <input type="hidden" name="class_id" value="<%=class.id%>">
+        <input type="text" name="name" placeholder="Namn på student">
+        <input type="text" name="img_path" placeholder="Path to img">
+        <input class="button" type="submit" value="Spara">
+    </form>
+
+    <table style="margin-top: 50px">
+        <%= for student <- students do %>
+            <tr class="class">
+                <td style="padding-right: 30px">
+                    <img src="<%=student.img_path%>">
+                </td>
+                <td style="padding-right: 30px">
+                    <a href="/classes/students/<%= student.id %>"><%=student.name%></a>
+                </td>
+                <td>
+                    <a class="button" href="/classes/students/<%= student.id %>/destroy">Delete</a>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>

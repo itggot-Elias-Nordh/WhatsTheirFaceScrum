@@ -1,13 +1,23 @@
-<h1> Klasser </h1>
-<a href="/classes/new"> Ny klass </a>
-<ul>
-    <%= for class <- classes do %>
-        <li class="class">
-            <a href="/classes/<%= class.id %>"><%=class.name%></a>
-            <a href="/classes/<%= class.id %>/edit"><button>Edit</button></a>
-            <form action="/classes/<%= class.id %>/destroy" method="post">
-                <input type="submit" value="Delete">
-            </form>
-        </li>
-    <% end %>
-</ul>
+<div class="main">
+    <h1>WTF</h1>
+    <p> (Patent pending..) </p>
+    <h3> Klasser </h3>
+    <a href="/classes/new"> Ny klass </a>
+    <table>
+        <%= for class <- classes do %>
+            <tr class="class">
+                <td class="class_name">
+                    <a href="/classes/<%= class.id %>"><%=class.name%></a>
+                </td>
+                <td>
+                    <a class="button" href="/classes/<%= class.id %>/edit">Edit</a>
+                </td>
+                <td>
+                    <form action="/classes/<%= class.id %>/destroy" method="post">
+                        <input class="button" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
