@@ -1,4 +1,7 @@
+<div class="main">
 <h1>WTF</h1>
+<p> (Patent pending..) </p>
 
-<a href="/login" class="box">Login</a>
-<a href="/register">Not registered?</a>
+<a class="button" href="/login" class="box">Login</a>
+<a class="button" href="/register">Not registered?</a>
+</div>

@@ -1,9 +1,22 @@
-<h1> Klass <%=class.name%> </h1>
-<ul>
-    <%= for student <- students do %>
-        <li class="class">
-            <img src="<%=student.img_path%>">
-            <a href="/classes/student/<%= student.id %>"><%=student.name%></a>
-        </li>
-    <% end %>
-</ul>
+<div class="main class_edit">
+    <h1>WTF</h1>
+    <p> (Patent pending..) </p>
+
+    <h1> Klass <%=class.name%> </h1>
+
+    <table style="margin-top: 50px">
+        <%= for student <- students do %>
+            <tr class="class">
+                <td style="padding-right: 30px">
+                    <img src="<%=student.img_path%>">
+                </td>
+                <td style="padding-right: 30px">
+                    <a href="/classes/students/<%= student.id %>"><%=student.name%></a>
+                </td>
+                <td>
+                    <a class="button" href="/classes/students/<%= student.id %>/destroy">Delete</a>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
