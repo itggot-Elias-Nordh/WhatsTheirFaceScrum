@@ -1,3 +1,5 @@
+<input id="new-class-name" type="text" name="name" placeholder="Namn på ny klass..">
+<input id="new-class-button" type="submit" value="Skapa">
 <div class="main class_edit">
     <h1>WTF</h1>
     <p> (Patent pending..) </p>
