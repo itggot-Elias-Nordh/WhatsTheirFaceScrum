@@ -1,4 +1,2 @@
-<form action="/classes/new" method="post">
-    <input type="text" name="name" placeholder="Namn på ny klass..">
-    <input type="submit" value="Skapa">
-</form>
+<input id="new-class-name" type="text" name="name" placeholder="Namn på ny klass..">
+<input id="new-class-button" type="submit" value="Skapa">

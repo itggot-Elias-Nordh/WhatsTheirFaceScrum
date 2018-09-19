@@ -4,6 +4,7 @@
 	<title>Welcome to Pluggy</title>
 	<link rel="stylesheet" type="text/css" href="/pluggy.css">
 	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<script src="/main.js"></script>
 </head>
 <body>
 	<container>

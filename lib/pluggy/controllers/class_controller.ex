@@ -21,9 +21,8 @@ defmodule Pluggy.ClassController do
   def edit(conn, id),     do: send_resp(conn, 200, render("whatsTheirFace/classes_edit", class: Classes.get_by_id(id), students: Students.get_by_class_id(id)))
 
   def create(conn, params) do
-
     Classes.create(params)
-    redirect(conn, "/classes")
+    send_resp(conn, 200, "classes")
   end
 
   def update(conn, id, params) do
@@ -32,8 +31,10 @@ defmodule Pluggy.ClassController do
   end
 
   def destroy(conn, id) do
+  IO.puts "hythgfhytyfyfyfryfy"
+    IO.inspect id
     Classes.delete_by_id(id)
-    redirect(conn, "/classes")
+    send_resp(conn, 200, "Deleted")
   end
 
   defp redirect(conn, url) do

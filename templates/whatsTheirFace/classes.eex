@@ -5,9 +5,7 @@
         <li class="class">
             <a href="/classes/<%= class.id %>"><%=class.name%></a>
             <a href="/classes/<%= class.id %>/edit"><button>Edit</button></a>
-            <form action="/classes/<%= class.id %>/destroy" method="post">
-                <input type="submit" value="Delete">
-            </form>
+            <a class="button" id="button<%=class.id%>">Ta Bort</a>
         </li>
     <% end %>
 </ul>

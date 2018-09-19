@@ -30,9 +30,9 @@ defmodule Pluggy.Router do
   get "/classes/new",           do: ClassController.new (conn)
   get "/classes/:id",           do: ClassController.show(conn, id)
   get "/classes/:id/edit",      do: ClassController.edit(conn, id)
-  post "/classes/new",          do: ClassController.create(conn, conn.body_params)
+  post "/classes",              do: ClassController.create(conn, conn.body_params)
   post "/classes/:id/edit",     do: ClassController.update(conn, id, conn.body_params)
-  post "/classes/:id/destroy",  do: ClassController.destroy(conn, id)
+  post "/classes/:id",          do: ClassController.destroy(conn, id)
 
   get "/",                      do: WTFController.index(conn)
   get "/login",                 do: WTFController.login(conn)
